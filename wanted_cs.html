@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>РОЗШУК: розголосила контракт CS</title>
+<style>
+:root{--bg:#1c2127;--panel:#e8e2cf;--ink:#1b1b1b;--orange:#e07b00;--red:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:'Trebuchet MS',Verdana,sans-serif;display:flex;justify-content:center;padding:20px 12px}
+.card{background:var(--panel);color:var(--ink);max-width:460px;width:100%;border:5px solid var(--ink);padding:22px 18px 26px;text-align:center;position:relative}
+.stamp{position:absolute;top:70px;right:-6px;transform:rotate(14deg);border:4px solid var(--red);color:var(--red);font-weight:900;font-size:1.3rem;padding:2px 10px;background:rgba(232,226,207,.85)}
+h1{margin:0;font-size:clamp(2.4rem,13vw,3.6rem);color:var(--orange);-webkit-text-stroke:2px var(--ink);letter-spacing:.04em;line-height:1}
+.sub{margin:6px 0 14px;font-style:italic}
+.avatar{overflow:hidden;width:55%;aspect-ratio:1;margin:0 auto 12px;border:4px solid var(--ink);background:repeating-linear-gradient(45deg,#cfc8b0,#cfc8b0 10px,#c3bba0 10px,#c3bba0 20px);display:flex;align-items:center;justify-content:center;font-size:4.5rem}
+h2{margin:6px 0;font-size:1.5rem}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;text-align:left;max-width:340px;margin:14px auto;font-size:.98rem}
+dt{font-weight:bold}
+dd{margin:0}
+.pick{display:inline-block;margin:0 0 8px;padding:6px 12px;border:2px solid var(--ink);background:var(--orange);color:var(--ink);font:inherit;font-weight:bold;cursor:pointer}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.reward{border:3px dashed var(--ink);padding:10px;margin-top:16px;font-weight:bold}
+.fine{font-size:.78rem;opacity:.7;margin:14px 0 0}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317}}
+</style>
+</head>
+<body>
+<main class="card">
+  <h1>РОЗШУК</h1>
+  <p class="sub">Розголошення умов контракту. Раунд не закрито.</p>
+  <div class="avatar" id="av" role="img" aria-label="Мультяшна аватарка"><svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true"><rect width="200" height="200" fill="#2b3a4a"/><rect y="150" width="200" height="50" fill="#1c2630"/><path d="M40 200c0-38 26-60 60-60s60 22 60 60z" fill="#4b5d3a"/><rect x="82" y="118" width="36" height="30" fill="#e0b48f"/><ellipse cx="100" cy="92" rx="38" ry="42" fill="#e9bf9a"/><path d="M58 88c-4-44 22-62 42-62s46 18 42 62c-8-18-22-26-42-26s-34 8-42 26z" fill="#3d4a2e"/><rect x="62" y="82" width="76" height="18" rx="9" fill="#111"/><rect x="66" y="85" width="30" height="11" rx="5" fill="#e07b00"/><rect x="104" y="85" width="30" height="11" rx="5" fill="#e07b00"/><path d="M84 120q16 10 32 0" stroke="#7a3b2a" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="60" y="165" width="80" height="20" rx="4" fill="#111" opacity=".75"/><text x="100" y="180" font-family="Verdana,sans-serif" font-size="13" font-weight="bold" fill="#e07b00" text-anchor="middle">emilia pro</text></svg></div>
+  <button class="pick" id="pick" type="button">Додати аватарку</button>
+  <input id="file" type="file" accept="image/*" hidden>
+  <div class="stamp">ТІКАЄ</div>
+  <h2>emilia pro</h2>
+  <dl>
+    <dt>Звинувачення:</dt><dd>розповіла про контракт, а про контракт розповідати не можна</dd>
+    <dt>Ще відомо, що:</dt><dd>вічно «ще один раунд» о другій ночі</dd>
+    <dt>Остання локація:</dt><dd>лобі, чекає на паті</dd>
+    <dt>Особливі прикмети:</dt><dd>пише «gg» навіть коли програла</dd>
+  </dl>
+  <div class="reward">Нагорода: 1 безкоштовний ран і скін на вибір (віртуальний)</div>
+  <p class="fine">😄 жарт для своїх</p>
+</main>
+<script>
+var f=document.getElementById('file'),av=document.getElementById('av');
+document.getElementById('pick').onclick=function(){f.click()};
+f.onchange=function(){var x=f.files[0];if(!x)return;var r=new FileReader();r.onload=function(){av.textContent='';var i=new Image();i.src=r.result;i.alt='Аватарка';av.appendChild(i)};r.readAsDataURL(x)};
+</script>
+</body>
+</html>
